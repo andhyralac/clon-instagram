@@ -17,16 +17,6 @@ const PostSchema = new Schema({
         type: Types.ObjectId,
         ref: 'User'
     }],
-    comments: [{
-        comment: {
-            type: Types.ObjectId,
-            ref: 'Comment'
-        },
-        author: {
-            type: Types.ObjectId,
-            ref: 'User'
-        } 
-    }],
     status: {
         type: Boolean,
         default: true

@@ -5,6 +5,14 @@ const CommentSchema = new Schema({
         type: String,
         required: true
     },
+    post: {
+        type: Types.ObjectId,
+        ref: 'Post'
+    },
+    author: {
+        type: Types.ObjectId,
+        ref: 'User'
+    },
     status: {
         type: Boolean,
         default: true
