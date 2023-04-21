@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose'
-import { password } from '../helpers/index.js'
+import { handlePassword } from '../helpers/index.js'
 
 
 const UserSchema = new Schema({
@@ -37,7 +37,7 @@ const UserSchema = new Schema({
 UserSchema.pre('save', function (next) {
     if (this.isModified('password')) {
         try {
-            this.password = password.encrypt(this.password)
+            this.password = handlePassword.encrypt(this.password)
         } catch (error) {
             return next(error)
         }
