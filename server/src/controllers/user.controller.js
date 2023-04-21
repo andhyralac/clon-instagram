@@ -1,5 +1,5 @@
 import { userService } from '../services/index.js'
-import { httResponse, token } from '../helpers/index.js'
+import { httResponse, handleToken } from '../helpers/index.js'
 
 export const handlerCreateUser = async (req, res) => {
     try {
@@ -10,7 +10,7 @@ export const handlerCreateUser = async (req, res) => {
             return httResponse.BadRequest(res, 'No se pude registrar al usuario')
         }
 
-        const tokenCreated = token.tokenSign(userCreated)
+        const tokenCreated = handleToken.tokenSign(userCreated)
 
         if (!tokenCreated) {
             return httResponse.BadRequest(res, 'No se pudo generar el token del usuario')
