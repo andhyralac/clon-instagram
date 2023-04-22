@@ -16,6 +16,10 @@ router.post('/likes', authMiddleware.authCheck, postController.handlerAddLikePos
 
 
 
+router.get('/', authMiddleware.authCheck, postController.handlerGetAllPosts)
+
+
+
 
 
 
