@@ -22,5 +22,10 @@ router.get('/', authMiddleware.authCheck, postController.handlerGetAllPosts)
 
 
 
+router.delete('/:postId', authMiddleware.authCheck, postController.handlerDeletePost)
+
+
+
+
 
 export default router
