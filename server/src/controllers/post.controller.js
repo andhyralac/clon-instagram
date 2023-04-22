@@ -22,3 +22,26 @@ export const handlerCreatePost = async (req = request, res = response) => {
         return httResponse.Error(res, error.message)
     }
 }
+
+
+
+
+export const handlerAddLikePost = async (req = request, res = response) => {
+    try {
+        const { postId } = req.body
+        const { userId } = req.user
+
+        const post = await postService.addLikePost(postId, userId)
+        if (!post) {
+            return httResponse.BadRequest(res, 'No se puede agregar LIKE en la publicación - usuario ya le dio LIKE')
+        }
+
+        return httResponse.Ok(res, 'Se agrego LIKE en la publicacion')
+
+    } catch (error) {
+        return httResponse.Error(res, error)
+    }
+}
+
+
+
