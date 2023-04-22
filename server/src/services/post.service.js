@@ -31,3 +31,9 @@ export const addLikePost = async (postId, userId) => {
         return null
     }
 }
+
+
+
+export const getAllPots = async () => {
+    return await PostModel.find({ status: true }).exec()
+}
