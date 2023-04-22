@@ -11,7 +11,7 @@ router.post('/', authMiddleware.authCheck, postController.handlerCreatePost)
 
 
 
-
+router.post('/likes', authMiddleware.authCheck, postController.handlerAddLikePost)
 
 
 
