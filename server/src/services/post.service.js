@@ -37,3 +37,14 @@ export const addLikePost = async (postId, userId) => {
 export const getAllPots = async () => {
     return await PostModel.find({ status: true }).exec()
 }
+
+
+
+
+export const deletePost = async (postId, userId) => {
+    return await PostModel.findOneAndUpdate(
+        { _id: postId, user: userId },
+        { $set: { status: false } },
+        { new: true }
+    )
+}
