@@ -45,3 +45,18 @@ export const handlerAddLikePost = async (req = request, res = response) => {
 
 
 
+export const handlerGetAllPosts = async (req = request, res = response) => {
+    try {
+        const allPosts = await postService.getAllPots()
+
+        return httResponse.Ok(res, {
+            posts: allPosts
+        })
+
+    } catch (error) {
+        return httResponse.Error(res, error)
+    }
+}
+
+
+
