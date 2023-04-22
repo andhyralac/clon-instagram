@@ -17,6 +17,10 @@ const PostSchema = new Schema({
         type: Types.ObjectId,
         ref: 'User'
     }],
+    comments: [{
+        type: Types.ObjectId,
+        ref: 'Comment'
+    }],
     status: {
         type: Boolean,
         default: true
