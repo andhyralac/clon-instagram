@@ -60,3 +60,19 @@ export const handlerGetAllPosts = async (req = request, res = response) => {
 
 
 
+export const handlerDeletePost = async (req = request, res = response) => {
+    try {
+        const { postId } = req.params
+        const { userId } = req.user
+
+        const post = await postService.deletePost(postId, userId)
+        if (!post || post?.status) {
+            return httResponse.BadRequest(res, 'No se puede eliminar la publiacion')
+        }
+
+        return httResponse.Ok(res, 'Se elimino la publicacion')
+
+    } catch (error) {
+        return httResponse.Error(res, error)
+    }
+}
